@@ -74,6 +74,7 @@ def page(lang, slug, title, desc, body, jsonld):
 <meta name="twitter:description" content="{html.escape(desc)}">
 <meta name="twitter:image" content="{BASE}/img/og.jpg">
 <meta name="theme-color" content="#0b0f0e">
+<meta name="google-site-verification" content="fb5ec6a95d883e6c">
 <link rel="icon" href="{up}favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="{up}img/apple-touch-icon.png">
 """
