@@ -299,11 +299,18 @@ tr:last-child td { padding-bottom: 0; }
   .roll-copy:nth-child(2) { display: none; }
 }
 
-/* 국가 표기. 이름 옆에 붙되 이름과 경쟁하지 않는다.
-   영화 크레딧의 국가 표기처럼 작고 흐리고 자간만 넓게. */
+/* 국가 표기. 이름 옆에 매달리되 줄 폭에는 끼지 않는다 — 폭에 포함시키면
+   그만큼 이름이 왼쪽으로 밀려서 가운데 정렬이 어긋나 보인다. */
+.people strong { position: relative; display: inline-block; }
+/* KR 은 strong 안에 둔다. 밖에 두면 기준점이 무대 전체가 되어 화면 밖으로 밀린다. */
 .people .loc {
-  margin-left: .55em; font-size: .44em; font-weight: 500;
-  letter-spacing: .16em; color: var(--ink-3);
-  vertical-align: .28em;
+  position: absolute; left: calc(100% + .5em); top: 50%;
+  transform: translateY(-52%);
+  font-size: 15px; font-weight: 500; letter-spacing: .14em;
+  color: var(--ink-3); white-space: nowrap;
 }
-.people a:hover .loc { color: var(--ink-3); }
+@media (max-width: 560px) {
+  /* 좁은 화면에서는 밖으로 나가므로 줄 안으로 들인다. */
+  .people strong { display: inline; }
+  .people .loc { position: static; transform: none; margin-left: .6em; font-size: 12px; }
+}
