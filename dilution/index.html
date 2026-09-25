@@ -50,6 +50,8 @@
       "acceptedAnswer": { "@type": "Answer", "text": "One part in fifty-one. The plus sign means stock plus water, so 1+50 is one part stock and fifty parts water, fifty-one parts in total. Reading it as one part in fifty gives 10ml instead of 9.8ml in 500ml, which is a slightly stronger developer than intended. A ratio written with a colon, such as 1:50, is used both ways depending on the manufacturer, which is why the plus form is safer." } },
     { "@type": "Question", "name": "How much Rodinal do I need for 500ml at 1+50?",
       "acceptedAnswer": { "@type": "Answer", "text": "About 9.8ml of Rodinal and 490.2ml of water. Note that many one-shot developers specify a minimum amount of stock per roll regardless of dilution, so check that the stock figure is not below that minimum before using a very high dilution." } },
+    { "@type": "Question", "name": "How do I mix a two-part developer written as 1+1+100?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A three-number dilution such as 1+1+100 means one part of concentrate A, one part of concentrate B, and one hundred parts water, so 102 parts in total. For 500ml of working solution that is 4.9ml of A, 4.9ml of B and 490.2ml of water. Add each concentrate to the water separately rather than combining A and B first, and mix immediately before use, because two-part developers have a short working life once combined." } },
     { "@type": "Question", "name": "What if the calculated stock is less than the minimum per roll?",
       "acceptedAnswer": { "@type": "Answer", "text": "Increase the working volume rather than adding more stock. Adding more stock changes the dilution and therefore the development time. A larger tank, or a tank that takes more liquid, keeps the ratio correct while meeting the minimum." } }
   ]
@@ -78,7 +80,7 @@
 </head>
 <body>
 <div class="chrome">
-  <b><a href="../" style="color:inherit;text-decoration:none">FilmDevMate</a></b>
+  <b><a href="../" style="color:inherit;text-decoration:none"><img class="mark" src="../img/mark.png" alt="" width="123" height="128">FilmDevMate</a></b>
   <nav><a href="../dilution/">Dilutions</a><a href="../steps/">Steps</a><a href="https://apps.apple.com/app/id6795000024">Download</a></nav>
 </div>
 <div class="wrap">
@@ -88,7 +90,8 @@
 
 <div class="answer">
 <p><strong>1+50 means one part stock to fifty parts water. Fifty-one parts in total.</strong>
-For 500ml, divide 500 by 51: about 9.8ml of stock and 490.2ml of water.</p>
+For 500ml, divide 500 by 51: about 9.8ml of stock and 490.2ml of water. A three-number
+dilution such as 1+1+100 works the same way, with two concentrates instead of one.</p>
 </div>
 
 <p>The mistake worth knowing about is reading 1+50 as one part <em>in</em> fifty. That gives
@@ -99,26 +102,56 @@ one part in nine gives 55.6ml where one part in ten gives 50ml, a 10% difference
 <h2>Calculator</h2>
 <div class="calc">
   <div class="row">
-    <div><label for="a">Stock parts</label><input id="a" type="number" value="1" min="0" step="any"></div>
-    <div><label for="b">Water parts</label><input id="b" type="number" value="50" min="0" step="any"></div>
+    <div><label for="a">A</label><input id="a" type="number" value="1" min="0" step="any"></div>
+    <div><label for="b">B</label><input id="b" type="number" value="50" min="0" step="any"></div>
+    <div class="partC" hidden><label for="c">C</label><input id="c" type="number" value="100" min="0" step="any"></div>
     <div><label for="v">Total volume (ml)</label><input id="v" type="number" value="500" min="0" step="any"></div>
   </div>
-  <p class="out" id="out">9.8 ml stock + 490.2 ml water</p>
+  <p class="out" id="out">A 9.8 ml &nbsp; B 490.2 ml</p>
+  <p class="hint" id="hint">A is the concentrate, B is the water.</p>
+  <button type="button" id="addStock" class="linkish">Add a third part (two-part developer)</button>
 </div>
 <script>
-  const f = () => {
-    const a = parseFloat(document.getElementById('a').value) || 0;
-    const b = parseFloat(document.getElementById('b').value) || 0;
-    const v = parseFloat(document.getElementById('v').value) || 0;
-    const t = a + b;
-    const out = document.getElementById('out');
-    if (t <= 0 || v <= 0) { out.textContent = '...'; return; }
-    const stock = v * a / t;
-    out.textContent = stock.toFixed(1) + ' ml stock + ' + (v - stock).toFixed(1) + ' ml water';
-  };
-  ['a','b','v'].forEach(id => document.getElementById(id).addEventListener('input', f));
-  f();
+  (function () {
+    const $ = id => document.getElementById(id);
+    const partC = document.querySelector('.partC');
+    let three = false;
+    const fmt = n => n.toFixed(1) + ' ml';
+    const calc = () => {
+      const a = parseFloat($('a').value) || 0;
+      const b = parseFloat($('b').value) || 0;
+      const c = three ? (parseFloat($('c').value) || 0) : 0;
+      const v = parseFloat($('v').value) || 0;
+      const total = a + b + c;
+      if (total <= 0 || v <= 0) { $('out').textContent = '...'; return; }
+      const u = v / total;
+      $('out').innerHTML = three
+        ? 'A ' + fmt(a * u) + ' &nbsp; B ' + fmt(b * u) + ' &nbsp; C ' + fmt(c * u)
+        : 'A ' + fmt(a * u) + ' &nbsp; B ' + fmt(b * u);
+    };
+    $('addStock').addEventListener('click', () => {
+      three = !three;
+      partC.hidden = !three;
+      if (three && $('b').value === '50') { $('b').value = '1'; }
+      if (!three && $('b').value === '1') { $('b').value = '50'; }
+      $('addStock').textContent = three ? 'Remove the third part' : 'Add a third part (two-part developer)';
+      $('hint').textContent = three ? 'A and B are the two concentrates, C is the water.' : 'A is the concentrate, B is the water.';
+      calc();
+    });
+    ['a', 'b', 'c', 'v'].forEach(id => $(id).addEventListener('input', calc));
+    calc();
+  })();
 </script>
+
+<h2>Two-part developers</h2>
+<p>Some developers come as two concentrates that are combined at the moment of use, because
+mixed together they do not keep. Pyro developers are the common example, and their dilutions
+are written with three numbers: <strong>1+1+100</strong> is A 1, B 1, C 100, where C is the water.</p>
+<p>The arithmetic is the same, you just add all three. 1+1+100 is 102 parts in total, so for
+500ml that is A 4.9ml, B 4.9ml and C 490.2ml. Use the button above to add the third part.</p>
+<p>Two things specific to these. Mix each concentrate into the water separately rather than
+combining A and B first, and mix them immediately before pouring, because the working
+solution has a short life once the two are together.</p>
 
 <h2>Common dilutions at common volumes</h2>
 <table>
@@ -129,7 +162,7 @@ one part in nine gives 55.6ml where one part in ten gives 50ml, a 10% difference
   <tr><td>1+50</td><td>5.9 ml</td><td>9.8 ml</td><td>12.7 ml</td><td>19.6 ml</td></tr>
   <tr><td>1+100</td><td>3.0 ml</td><td>5.0 ml</td><td>6.4 ml</td><td>9.9 ml</td></tr>
 </table>
-<p>Figures are the stock developer; the rest of the volume is water.</p>
+<p>Figures are part A, the concentrate. The rest of the volume is B, the water.</p>
 
 <h2>Two things the arithmetic does not tell you</h2>
 

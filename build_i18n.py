@@ -46,7 +46,7 @@ def page(lang, slug, title, desc, body, jsonld):
     crumb = (f'<p class="breadcrumb"><a href="../">{NAV[lang][""]}</a> / {NAV[lang][slug]}</p>'
              if slug else '')
     home = "../" if slug else "./"
-    chrome = (f'<div class="chrome">\n  <b>FilmDevMate</b>\n  <nav>'
+    chrome = (f'<div class="chrome">\n  <b><img class="mark" src="{up}img/mark.png" alt="" width="128" height="128">FilmDevMate</b>\n  <nav>'
               f'<a href="{home}dilution/">{NAV[lang]["dilution"]}</a>'
               f'<a href="{home}steps/">{NAV[lang]["steps"]}</a>'
               f'<a href="https://apps.apple.com/app/id6795000024">{DOWNLOAD[lang]}</a>'

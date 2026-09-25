@@ -215,3 +215,16 @@ tr:last-child td { padding-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* 계산기 안의 보조 동작. 버튼처럼 무겁지 않게, 링크처럼 둔다. */
+.linkish {
+  display: inline-block; margin: 16px 0 0; padding: 0;
+  background: none; border: 0; color: var(--amber);
+  font: inherit; font-size: 15px; cursor: pointer; text-align: left;
+}
+.linkish:hover { text-decoration: underline; }
+.calc .hint { color: var(--ink-3); font-size: 14px; margin: 8px 0 0; }
+
+/* 워드마크 옆의 마크. 글자 높이에 맞춰 붙인다. */
+.chrome b { display: inline-flex; align-items: center; gap: 8px; }
+.chrome .mark { width: 19px; height: 19px; display: block; }

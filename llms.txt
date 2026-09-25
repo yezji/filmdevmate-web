@@ -15,8 +15,8 @@ It is made by an independent developer, not a film manufacturer.
   temperature and the time for each format.
 - **Timer.** Loads a recipe as a sequence of steps (develop, stop, fix, wash),
   advances between them automatically and notifies at each step boundary.
-  Steps can be edited. On iOS the remaining time appears on the Lock Screen
-  and in the Dynamic Island.
+  Steps can be edited. On iOS the remaining time also appears on the Lock Screen and in
+  the Dynamic Island.
 - **Dilution mixer.** Converts a ratio and a target volume into the amounts to
   pour. For example, 1+50 at 650ml is 12.7ml of stock and 637.3ml of water.
   Includes a unit converter for recipes written in imperial units.

@@ -33,7 +33,7 @@ INDEX = dict(
 
   <p>그다음은 타이머만 따라가면 됩니다. 레시피를 불러오면 현상·정지·정착·수세를
   알아서 넘기고 단계가 끝날 때마다 알려줍니다. 단계 사이에 다시 맞출 것도, 기억할 것도
-  없습니다. iOS에서는 남은 시간이 잠금화면과 다이내믹 아일랜드에 뜹니다.</p>
+  없습니다.</p>
 
   <div class="feature">
     <div>
@@ -119,25 +119,55 @@ DILUTION = dict(
 <h2>계산기</h2>
 <div class="calc">
   <div class="row">
-    <div><label for="a">원액</label><input id="a" type="number" value="1" min="0" step="any"></div>
-    <div><label for="b">물</label><input id="b" type="number" value="50" min="0" step="any"></div>
+    <div><label for="a">A</label><input id="a" type="number" value="1" min="0" step="any"></div>
+    <div><label for="b">B</label><input id="b" type="number" value="50" min="0" step="any"></div>
+    <div class="partC" hidden><label for="c">C</label><input id="c" type="number" value="100" min="0" step="any"></div>
     <div><label for="v">총량 (ml)</label><input id="v" type="number" value="500" min="0" step="any"></div>
   </div>
-  <p class="out" id="out">원액 9.8 ml + 물 490.2 ml</p>
+  <p class="out" id="out">A 9.8 ml &nbsp; B 490.2 ml</p>
+  <p class="hint" id="hint">A가 농축액, B가 물입니다.</p>
+  <button type="button" id="addStock" class="linkish">C 추가하기 (2액형 현상액)</button>
 </div>
 <script>
-  const f = () => {
-    const a = parseFloat(document.getElementById('a').value) || 0;
-    const b = parseFloat(document.getElementById('b').value) || 0;
-    const v = parseFloat(document.getElementById('v').value) || 0;
-    const t = a + b, out = document.getElementById('out');
-    if (t <= 0 || v <= 0) { out.textContent = ''; return; }
-    const s = v * a / t;
-    out.textContent = '원액 ' + s.toFixed(1) + ' ml + 물 ' + (v - s).toFixed(1) + ' ml';
-  };
-  ['a','b','v'].forEach(id => document.getElementById(id).addEventListener('input', f));
-  f();
+  (function () {
+    const $ = id => document.getElementById(id);
+    const partC = document.querySelector('.partC');
+    let three = false;
+    const fmt = n => n.toFixed(1) + ' ml';
+    const calc = () => {
+      const a = parseFloat($('a').value) || 0;
+      const b = parseFloat($('b').value) || 0;
+      const c = three ? (parseFloat($('c').value) || 0) : 0;
+      const v = parseFloat($('v').value) || 0;
+      const total = a + b + c;
+      if (total <= 0 || v <= 0) { $('out').textContent = '...'; return; }
+      const u = v / total;
+      $('out').innerHTML = three
+        ? 'A ' + fmt(a * u) + ' &nbsp; B ' + fmt(b * u) + ' &nbsp; C ' + fmt(c * u)
+        : 'A ' + fmt(a * u) + ' &nbsp; B ' + fmt(b * u);
+    };
+    $('addStock').addEventListener('click', () => {
+      three = !three;
+      partC.hidden = !three;
+      if (three && $('b').value === '50') { $('b').value = '1'; }
+      if (!three && $('b').value === '1') { $('b').value = '50'; }
+      $('addStock').textContent = three ? 'C 빼기' : 'C 추가하기 (2액형 현상액)';
+      $('hint').textContent = three ? 'A와 B가 농축액 둘, C가 물입니다.' : 'A가 농축액, B가 물입니다.';
+      calc();
+    });
+    ['a', 'b', 'c', 'v'].forEach(id => $(id).addEventListener('input', calc));
+    calc();
+  })();
 </script>
+
+<h2>2액형 현상액</h2>
+<p>농축액 두 개를 쓸 때 섞어 쓰는 현상액이 있습니다. 미리 섞어 두면 보관이 안 되기
+때문입니다. 피로(Pyro) 계열이 대표적이고, 희석비가 숫자 세 개로 적힙니다.
+<strong>1+1+100</strong>은 A 1, B 1, C 100이고 C가 물입니다.</p>
+<p>계산은 똑같습니다. 셋을 다 더하면 됩니다. 1+1+100은 합이 102이므로 500ml라면
+A 4.9ml, B 4.9ml, 물 490.2ml. 위 계산기에서 C를 추가하면 됩니다.</p>
+<p>이쪽만의 주의가 둘 있습니다. A와 B를 먼저 섞지 말고 각각 물에 넣으세요. 그리고
+붓기 직전에 만드세요. 둘이 합쳐진 뒤로는 작업액의 수명이 짧습니다.</p>
 
 <h2>자주 쓰는 희석</h2>
 <table>

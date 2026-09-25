@@ -84,7 +84,7 @@
 </head>
 <body>
 <div class="chrome">
-  <b>FilmDevMate</b>
+  <b><img class="mark" src="../../img/mark.png" alt="" width="128" height="128">FilmDevMate</b>
   <nav><a href="../dilution/">希釈計算</a><a href="../steps/">工程順</a><a href="https://apps.apple.com/app/id6795000024">入手</a></nav>
 </div>
 <div class="wrap">
@@ -103,25 +103,55 @@
 <h2>計算機</h2>
 <div class="calc">
   <div class="row">
-    <div><label for="a">原液</label><input id="a" type="number" value="1" min="0" step="any"></div>
-    <div><label for="b">水</label><input id="b" type="number" value="50" min="0" step="any"></div>
+    <div><label for="a">A</label><input id="a" type="number" value="1" min="0" step="any"></div>
+    <div><label for="b">B</label><input id="b" type="number" value="50" min="0" step="any"></div>
+    <div class="partC" hidden><label for="c">C</label><input id="c" type="number" value="100" min="0" step="any"></div>
     <div><label for="v">総量 (ml)</label><input id="v" type="number" value="500" min="0" step="any"></div>
   </div>
-  <p class="out" id="out">原液 9.8 ml ＋ 水 490.2 ml</p>
+  <p class="out" id="out">A 9.8 ml &nbsp; B 490.2 ml</p>
+  <p class="hint" id="hint">A が濃縮液、B が水です。</p>
+  <button type="button" id="addStock" class="linkish">C を追加（2液式現像液）</button>
 </div>
 <script>
-  const f = () => {
-    const a = parseFloat(document.getElementById('a').value) || 0;
-    const b = parseFloat(document.getElementById('b').value) || 0;
-    const v = parseFloat(document.getElementById('v').value) || 0;
-    const t = a + b, out = document.getElementById('out');
-    if (t <= 0 || v <= 0) { out.textContent = ''; return; }
-    const s = v * a / t;
-    out.textContent = '原液 ' + s.toFixed(1) + ' ml ＋ 水 ' + (v - s).toFixed(1) + ' ml';
-  };
-  ['a','b','v'].forEach(id => document.getElementById(id).addEventListener('input', f));
-  f();
+  (function () {
+    const $ = id => document.getElementById(id);
+    const partC = document.querySelector('.partC');
+    let three = false;
+    const fmt = n => n.toFixed(1) + ' ml';
+    const calc = () => {
+      const a = parseFloat($('a').value) || 0;
+      const b = parseFloat($('b').value) || 0;
+      const c = three ? (parseFloat($('c').value) || 0) : 0;
+      const v = parseFloat($('v').value) || 0;
+      const total = a + b + c;
+      if (total <= 0 || v <= 0) { $('out').textContent = '...'; return; }
+      const u = v / total;
+      $('out').innerHTML = three
+        ? 'A ' + fmt(a * u) + ' &nbsp; B ' + fmt(b * u) + ' &nbsp; C ' + fmt(c * u)
+        : 'A ' + fmt(a * u) + ' &nbsp; B ' + fmt(b * u);
+    };
+    $('addStock').addEventListener('click', () => {
+      three = !three;
+      partC.hidden = !three;
+      if (three && $('b').value === '50') { $('b').value = '1'; }
+      if (!three && $('b').value === '1') { $('b').value = '50'; }
+      $('addStock').textContent = three ? 'C を外す' : 'C を追加（2液式現像液）';
+      $('hint').textContent = three ? 'A と B が二つの濃縮液、C が水です。' : 'A が濃縮液、B が水です。';
+      calc();
+    });
+    ['a', 'b', 'c', 'v'].forEach(id => $(id).addEventListener('input', calc));
+    calc();
+  })();
 </script>
+
+<h2>2液式の現像液</h2>
+<p>二つの濃縮液を使うときに混ぜる現像液があります。あらかじめ混ぜておくと保たないから
+です。ピロ（Pyro）系が代表的で、希釈比が三つの数字で書かれます。
+<strong>1+1+100</strong> は A が1、B が1、C が100で、C が水です。</p>
+<p>計算は同じです。三つとも足すだけ。1+1+100 は合計102なので、500ml なら
+A 4.9ml、B 4.9ml、水 490.2ml。上の計算機で C を追加してください。</p>
+<p>この種類だけの注意が二つあります。A と B を先に混ぜず、それぞれ水に入れること。
+そして注ぐ直前に作ること。二つが合わさったあとは作業液の寿命が短くなります。</p>
 
 <h2>よく使う希釈</h2>
 <table>
