@@ -92,6 +92,14 @@ INDEX = dict(
     <div><span>制作</span><span>個人開発者。メーカーとは無関係です</span></div>
   </div>
 </section>
+
+<section>
+  <h2 id="get">アプリを入手</h2>
+  <p class="badges">
+    <a href="https://apps.apple.com/app/id6795000024"><img src="../img/badge-appstore.svg" alt="App Store からダウンロード" width="120" height="40"></a>
+    <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../img/badge-play.png" alt="Google Play で手に入れよう" width="564" height="168"></a>
+  </p>
+</section>
 """)
 
 DILUTION = dict(
@@ -118,7 +126,6 @@ DILUTION = dict(
     <div><label for="v">総量 (ml)</label><input id="v" type="number" value="500" min="0" step="any"></div>
   </div>
   <p class="out" id="out">A 9.8 ml &nbsp; B 490.2 ml</p>
-  <p class="hint" id="hint">A が濃縮液、B が水です。</p>
   <button type="button" id="addStock" class="linkish">C を追加（2液式現像液）</button>
 </div>
 <script>
@@ -145,7 +152,6 @@ DILUTION = dict(
       if (three && $('b').value === '50') { $('b').value = '1'; }
       if (!three && $('b').value === '1') { $('b').value = '50'; }
       $('addStock').textContent = three ? 'C を外す' : 'C を追加（2液式現像液）';
-      $('hint').textContent = three ? 'A と B が二つの濃縮液、C が水です。' : 'A が濃縮液、B が水です。';
       calc();
     });
     ['a', 'b', 'c', 'v'].forEach(id => $(id).addEventListener('input', calc));
@@ -184,6 +190,12 @@ A 4.9ml、B 4.9ml、水 490.2ml。上の計算機で C を追加してくださ�
 <p>一回使い切りの現像液には、希釈にかかわらず1本あたりの最低原液量が決められている
 ものがあります。それを下回ると、フィルムを最後まで現像する成分が足りません。計算結果が
 最低量を下回ったら総量を増やしてください。原液を足すと希釈が変わり、現像時間も変わります。</p>
+
+<h2 id="get">アプリを入手</h2>
+<p class="badges">
+  <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store からダウンロード" width="120" height="40"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play で手に入れよう" width="564" height="168"></a>
+</p>
 """)
 
 TEMPERATURE = dict(
@@ -227,6 +239,12 @@ FilmDevMate が示すのはこれです。レシピごとに基準温度が書�
 <p>現像はフィルム写真で唯一やり直せない工程です。露出はスキャンやプリントである程度
 救えますが、現像しすぎたネガを薄くすることはできません。水浴に2分使うほうが、一本
 だめにするより安く済みます。</p>
+
+<h2 id="get">アプリを入手</h2>
+<p class="badges">
+  <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store からダウンロード" width="120" height="40"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play で手に入れよう" width="564" height="168"></a>
+</p>
 """)
 
 STEPS = dict(
@@ -271,4 +289,10 @@ STEPS = dict(
 時間は、連続転倒では合いません。撹拌は新しい現像液を乳剤に当てる作業なので、多いほど
 速く現像されます。レシピが撹拌方法を書いているなら、それはその時間が測られた条件の
 説明です。</p>
+
+<h2 id="get">アプリを入手</h2>
+<p class="badges">
+  <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store からダウンロード" width="120" height="40"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play で手に入れよう" width="564" height="168"></a>
+</p>
 """)

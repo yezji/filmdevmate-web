@@ -98,6 +98,14 @@ INDEX = dict(
     <div><span>만든 곳</span><span>1인 개발자. 제조사와 무관합니다</span></div>
   </div>
 </section>
+
+<section>
+  <h2 id="get">앱 받기</h2>
+  <p class="badges">
+    <a href="https://apps.apple.com/app/id6795000024"><img src="../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
+    <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
+  </p>
+</section>
 """)
 
 DILUTION = dict(
@@ -125,7 +133,6 @@ DILUTION = dict(
     <div><label for="v">총량 (ml)</label><input id="v" type="number" value="500" min="0" step="any"></div>
   </div>
   <p class="out" id="out">A 9.8 ml &nbsp; B 490.2 ml</p>
-  <p class="hint" id="hint">A가 농축액, B가 물입니다.</p>
   <button type="button" id="addStock" class="linkish">C 추가하기 (2액형 현상액)</button>
 </div>
 <script>
@@ -152,7 +159,6 @@ DILUTION = dict(
       if (three && $('b').value === '50') { $('b').value = '1'; }
       if (!three && $('b').value === '1') { $('b').value = '50'; }
       $('addStock').textContent = three ? 'C 빼기' : 'C 추가하기 (2액형 현상액)';
-      $('hint').textContent = three ? 'A와 B가 농축액 둘, C가 물입니다.' : 'A가 농축액, B가 물입니다.';
       calc();
     });
     ['a', 'b', 'c', 'v'].forEach(id => $(id).addEventListener('input', calc));
@@ -192,6 +198,12 @@ A 4.9ml, B 4.9ml, 물 490.2ml. 위 계산기에서 C를 추가하면 됩니다.<
 그 아래로 내려가면 필름을 끝까지 현상할 활성 성분이 모자랍니다. 계산 결과가 최소치
 아래면 총량을 늘리세요. 원액을 더 넣으면 희석이 달라지고, 따라서 현상 시간도
 달라집니다.</p>
+
+<h2 id="get">앱 받기</h2>
+<p class="badges">
+  <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
+</p>
 """)
 
 TEMPERATURE = dict(
@@ -237,6 +249,12 @@ FilmDevMate가 보여주는 게 이겁니다. 레시피마다 기준 온도가 �
 <p>현상은 필름 사진에서 되돌릴 수 없는 유일한 단계입니다. 노출은 스캔이나 인화에서
 어느 정도 손볼 수 있지만, 과하게 현상된 네거티브를 다시 묽게 만들 수는 없습니다.
 수조에 2분 쓰는 것이 한 롤을 날리는 것보다 쌉니다.</p>
+
+<h2 id="get">앱 받기</h2>
+<p class="badges">
+  <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
+</p>
 """)
 
 STEPS = dict(
@@ -282,4 +300,10 @@ STEPS = dict(
 공개된 시간은, 계속 전도하면 맞지 않습니다. 교반은 새 현상액을 유제에 대는 일이라
 많이 할수록 빨리 현상됩니다. 레시피가 교반 방식을 적어 뒀다면, 그건 그 시간이
 측정된 조건을 설명하는 것입니다.</p>
+
+<h2 id="get">앱 받기</h2>
+<p class="badges">
+  <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
+</p>
 """)

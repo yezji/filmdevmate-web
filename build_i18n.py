@@ -46,10 +46,13 @@ def page(lang, slug, title, desc, body, jsonld):
     crumb = (f'<p class="breadcrumb"><a href="../">{NAV[lang][""]}</a> / {NAV[lang][slug]}</p>'
              if slug else '')
     home = "../" if slug else "./"
-    chrome = (f'<div class="chrome">\n  <b><img class="mark" src="{up}img/mark.png" alt="" width="128" height="128">FilmDevMate</b>\n  <nav>'
+    chrome = (f'<div class="chrome">\n'
+              f'  <b><a href="{home}" aria-label="FilmDevMate">'
+              f'<img class="mark" src="{up}img/mark.png" alt="" width="123" height="128">FilmDevMate</a></b>\n'
+              f'  <nav>'
               f'<a href="{home}dilution/">{NAV[lang]["dilution"]}</a>'
               f'<a href="{home}steps/">{NAV[lang]["steps"]}</a>'
-              f'<a href="https://apps.apple.com/app/id6795000024">{DOWNLOAD[lang]}</a>'
+              f'<a href="#get">{DOWNLOAD[lang]}</a>'
               f'</nav>\n</div>')
     # SEO. og:url 은 canonical 과 반드시 같은 값이어야 한다.
     alt_locales = "".join(

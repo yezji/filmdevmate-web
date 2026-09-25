@@ -80,8 +80,8 @@
 </head>
 <body>
 <div class="chrome">
-  <b><a href="../" style="color:inherit;text-decoration:none"><img class="mark" src="../img/mark.png" alt="" width="123" height="128">FilmDevMate</a></b>
-  <nav><a href="../dilution/">Dilutions</a><a href="../steps/">Steps</a><a href="https://apps.apple.com/app/id6795000024">Download</a></nav>
+  <b><a href="../" aria-label="FilmDevMate"><a href="../" aria-label="FilmDevMate"><img class="mark" src="../img/mark.png" alt="" width="123" height="128">FilmDevMate</a></a></b>
+  <nav><a href="../dilution/">Dilutions</a><a href="../steps/">Steps</a><a href="#get">Download</a></nav>
 </div>
 <div class="wrap">
 <p class="breadcrumb"><a href="../">FilmDevMate</a> / Dilutions</p>
@@ -108,7 +108,6 @@ one part in nine gives 55.6ml where one part in ten gives 50ml, a 10% difference
     <div><label for="v">Total volume (ml)</label><input id="v" type="number" value="500" min="0" step="any"></div>
   </div>
   <p class="out" id="out">A 9.8 ml &nbsp; B 490.2 ml</p>
-  <p class="hint" id="hint">A is the concentrate, B is the water.</p>
   <button type="button" id="addStock" class="linkish">Add a third part (two-part developer)</button>
 </div>
 <script>
@@ -135,7 +134,6 @@ one part in nine gives 55.6ml where one part in ten gives 50ml, a 10% difference
       if (three && $('b').value === '50') { $('b').value = '1'; }
       if (!three && $('b').value === '1') { $('b').value = '50'; }
       $('addStock').textContent = three ? 'Remove the third part' : 'Add a third part (two-part developer)';
-      $('hint').textContent = three ? 'A and B are the two concentrates, C is the water.' : 'A is the concentrate, B is the water.';
       calc();
     });
     ['a', 'b', 'c', 'v'].forEach(id => $(id).addEventListener('input', calc));
@@ -176,6 +174,12 @@ small amount of stock, the answer is a larger volume, not less liquid.</p>
 dilution, because below it there is not enough active chemistry to develop the film fully.
 If the calculation puts you under that minimum, increase the total volume. Adding extra stock
 instead changes the dilution, and therefore the development time.</p>
+
+<h2 id="get">Get the app</h2>
+<p class="badges">
+  <a href="https://apps.apple.com/app/id6795000024"><img src="../img/badge-appstore.svg" alt="Download on the App Store" width="120" height="40"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../img/badge-play.png" alt="Get it on Google Play" width="564" height="168"></a>
+</p>
 
 <div class="next">
   <a href="../temperature/"><strong>What if my developer is 22°C instead of 20°C?</strong>

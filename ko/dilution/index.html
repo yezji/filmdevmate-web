@@ -84,8 +84,8 @@
 </head>
 <body>
 <div class="chrome">
-  <b><img class="mark" src="../../img/mark.png" alt="" width="128" height="128">FilmDevMate</b>
-  <nav><a href="../dilution/">희석 계산</a><a href="../steps/">공정 순서</a><a href="https://apps.apple.com/app/id6795000024">받기</a></nav>
+  <b><a href="../" aria-label="FilmDevMate"><img class="mark" src="../../img/mark.png" alt="" width="123" height="128">FilmDevMate</a></b>
+  <nav><a href="../dilution/">희석 계산</a><a href="../steps/">공정 순서</a><a href="#get">받기</a></nav>
 </div>
 <div class="wrap">
 <p class="breadcrumb"><a href="../">FilmDevMate</a> / 희석 계산</p>
@@ -110,7 +110,6 @@
     <div><label for="v">총량 (ml)</label><input id="v" type="number" value="500" min="0" step="any"></div>
   </div>
   <p class="out" id="out">A 9.8 ml &nbsp; B 490.2 ml</p>
-  <p class="hint" id="hint">A가 농축액, B가 물입니다.</p>
   <button type="button" id="addStock" class="linkish">C 추가하기 (2액형 현상액)</button>
 </div>
 <script>
@@ -137,7 +136,6 @@
       if (three && $('b').value === '50') { $('b').value = '1'; }
       if (!three && $('b').value === '1') { $('b').value = '50'; }
       $('addStock').textContent = three ? 'C 빼기' : 'C 추가하기 (2액형 현상액)';
-      $('hint').textContent = three ? 'A와 B가 농축액 둘, C가 물입니다.' : 'A가 농축액, B가 물입니다.';
       calc();
     });
     ['a', 'b', 'c', 'v'].forEach(id => $(id).addEventListener('input', calc));
@@ -177,6 +175,12 @@ A 4.9ml, B 4.9ml, 물 490.2ml. 위 계산기에서 C를 추가하면 됩니다.<
 그 아래로 내려가면 필름을 끝까지 현상할 활성 성분이 모자랍니다. 계산 결과가 최소치
 아래면 총량을 늘리세요. 원액을 더 넣으면 희석이 달라지고, 따라서 현상 시간도
 달라집니다.</p>
+
+<h2 id="get">앱 받기</h2>
+<p class="badges">
+  <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
+  <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
+</p>
 
 <footer><p class="langswitch"><a href="https://yezji.github.io/filmdevmate-web/dilution/">English</a> · <span>한국어</span> · <a href="https://yezji.github.io/filmdevmate-web/ja/dilution/">日本語</a></p></footer>
 </div>
