@@ -298,3 +298,12 @@ tr:last-child td { padding-bottom: 0; }
   .roll-copy { padding-top: 0; }
   .roll-copy:nth-child(2) { display: none; }
 }
+
+/* 국가 표기. 이름 옆에 붙되 이름과 경쟁하지 않는다.
+   영화 크레딧의 국가 표기처럼 작고 흐리고 자간만 넓게. */
+.people .loc {
+  margin-left: .55em; font-size: .44em; font-weight: 500;
+  letter-spacing: .16em; color: var(--ink-3);
+  vertical-align: .28em;
+}
+.people a:hover .loc { color: var(--ink-3); }
