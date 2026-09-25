@@ -39,11 +39,19 @@
   "applicationCategory": "UtilitiesApplication",
   "applicationSubCategory": "Photography",
   "operatingSystem": "iOS 17 or later, Android 7.0 or later",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
   "description": "An app for developing black and white film at home. Find development times by film and developer, run the process on a step timer, and calculate dilutions.",
   "url": "https://yezji.github.io/filmdevmate-web/",
   "downloadUrl": "https://apps.apple.com/app/id6795000024",
-  "inLanguage": ["en", "ko", "ja"],
+  "inLanguage": [
+    "en",
+    "ko",
+    "ja"
+  ],
   "featureList": [
     "Development times by film and developer for 135, 120 and 4x5",
     "Step timer that advances automatically and notifies at each step",
@@ -51,6 +59,9 @@
     "Dilution calculator and unit converter",
     "Development log",
     "Development map of film and developer combinations"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/filmdevmate/"
   ]
 }
 </script>
@@ -62,32 +73,50 @@
     {
       "@type": "Question",
       "name": "Is there an app for developing black and white film at home?",
-      "acceptedAnswer": { "@type": "Answer", "text": "FilmDevMate is a free app for iOS and Android built for home development of black and white film. You choose a film and a developer, and it shows the dilution, temperature and development time for that combination, then runs the whole process as a timer that moves between develop, stop, fix and wash on its own." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FilmDevMate is a free app for iOS and Android built for home development of black and white film. You choose a film and a developer, and it shows the dilution, temperature and development time for that combination, then runs the whole process as a timer that moves between develop, stop, fix and wash on its own."
+      }
     },
     {
       "@type": "Question",
       "name": "How do I calculate a 1+50 dilution for 500ml?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A 1+50 dilution means one part stock to fifty parts water, so the total is 51 parts. For 500ml, divide 500 by 51 to get about 9.8ml of stock and about 490.2ml of water. The ratio is always parts of stock plus parts of water, not one part in fifty. FilmDevMate does this conversion for any ratio and volume, and also converts between millilitres and fluid ounces." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 1+50 dilution means one part stock to fifty parts water, so the total is 51 parts. For 500ml, divide 500 by 51 to get about 9.8ml of stock and about 490.2ml of water. The ratio is always parts of stock plus parts of water, not one part in fifty. FilmDevMate does this conversion for any ratio and volume, and also converts between millilitres and fluid ounces."
+      }
     },
     {
       "@type": "Question",
       "name": "What happens if my developer is 22C instead of 20C?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A development recipe is written for a specific temperature, so two degrees warmer is effectively a different recipe rather than a rounding error: development runs faster and the negative comes out denser if the time is unchanged. The reliable approach is to use a recipe written for the temperature you actually have, or to bring the chemistry back to the stated temperature. FilmDevMate shows the temperature each recipe was made for." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A development recipe is written for a specific temperature, so two degrees warmer is effectively a different recipe rather than a rounding error: development runs faster and the negative comes out denser if the time is unchanged. The reliable approach is to use a recipe written for the temperature you actually have, or to bring the chemistry back to the stated temperature. FilmDevMate shows the temperature each recipe was made for."
+      }
     },
     {
       "@type": "Question",
       "name": "How do I keep track of stop bath and fixer times while developing?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The difficult part of home development is running several timed steps back to back with wet hands, where a missed thirty second step is easy to do and hard to notice. FilmDevMate loads a recipe as a sequence of steps and advances between them automatically, notifying at each boundary, so no step has to be remembered or reset by hand." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The difficult part of home development is running several timed steps back to back with wet hands, where a missed thirty second step is easy to do and hard to notice. FilmDevMate loads a recipe as a sequence of steps and advances between them automatically, notifying at each boundary, so no step has to be remembered or reset by hand."
+      }
     },
     {
       "@type": "Question",
       "name": "Is FilmDevMate free?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. FilmDevMate is free on iOS and Android and is supported by advertising. Recipes, the timer and the dilution calculator can be used without creating an account. An account is only needed to save your own recipes, keep a development log, or take part in the development map." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. FilmDevMate is free on iOS and Android and is supported by advertising. Recipes, the timer and the dilution calculator can be used without creating an account. An account is only needed to save your own recipes, keep a development log, or take part in the development map."
+      }
     },
     {
       "@type": "Question",
       "name": "Where do FilmDevMate's development times come from?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Times come from published manufacturer data and from times shared by film photographers. They are a starting point rather than a guarantee: results vary with agitation, water, and how much the developer has already been used. Users can publish their own recipes and record how a roll actually turned out." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Times come from published manufacturer data and from times shared by film photographers. They are a starting point rather than a guarantee: results vary with agitation, water, and how much the developer has already been used. Users can publish their own recipes and record how a roll actually turned out."
+      }
     }
   ]
 }
@@ -102,7 +131,10 @@
   "publisher": {
     "@type": "Person",
     "name": "Yeji Hong"
-  }
+  },
+  "sameAs": [
+    "https://www.instagram.com/filmdevmate/"
+  ]
 }
 </script>
 </head>
@@ -215,7 +247,7 @@
     </p>
 
 <footer>
-  <p><a href="./credits/">Credits</a></p>
+  <p><a href="./credits/">Credits</a> &middot; <a href="https://www.instagram.com/filmdevmate/" rel="me noopener">@filmdevmate</a></p>
   <p class="langswitch"><span>English</span> &middot;
   <a href="ko/">한국어</a> &middot; <a href="ja/">日本語</a></p>
   <p><a href="https://yezji.github.io/filmdevmate-legal/en/privacy.html">Privacy policy</a></p>

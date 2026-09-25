@@ -10,6 +10,7 @@ APP = lambda lang, desc, os_, feats: {
   "description": desc, "url": f"https://yezji.github.io/filmdevmate-web/{lang}/",
   "downloadUrl": "https://apps.apple.com/app/id6795000024",
   "inLanguage": ["en", "ko", "ja"], "featureList": feats,
+  "sameAs": ["https://www.instagram.com/filmdevmate/"],
 }
 def faq(qs):
     return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [

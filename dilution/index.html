@@ -34,10 +34,26 @@
   "description": "Convert a dilution ratio such as 1+50 and a target volume into the amount of stock developer and water to measure.",
   "totalTime": "PT1M",
   "step": [
-    { "@type": "HowToStep", "name": "Add the parts", "text": "A ratio written as 1+50 is one part stock to fifty parts water, so the total is fifty-one parts. Add the two numbers rather than using the second one alone." },
-    { "@type": "HowToStep", "name": "Divide the volume by the total parts", "text": "Divide your target working volume by the total number of parts. For 500ml at 1+50, 500 divided by 51 is 9.8ml. That is one part." },
-    { "@type": "HowToStep", "name": "Measure stock and water", "text": "Use one part of stock developer and the remainder as water. For 500ml at 1+50 that is 9.8ml of stock and 490.2ml of water." },
-    { "@type": "HowToStep", "name": "Check the volume covers the reel", "text": "The working volume must cover the film in the tank. A 35mm single reel tank typically needs 300ml and a 120 reel typically needs 500ml, so a very high dilution may require a larger tank rather than less liquid." }
+    {
+      "@type": "HowToStep",
+      "name": "Add the parts",
+      "text": "A ratio written as 1+50 is one part stock to fifty parts water, so the total is fifty-one parts. Add the two numbers rather than using the second one alone."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Divide the volume by the total parts",
+      "text": "Divide your target working volume by the total number of parts. For 500ml at 1+50, 500 divided by 51 is 9.8ml. That is one part."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Measure stock and water",
+      "text": "Use one part of stock developer and the remainder as water. For 500ml at 1+50 that is 9.8ml of stock and 490.2ml of water."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Check the volume covers the reel",
+      "text": "The working volume must cover the film in the tank. A 35mm single reel tank typically needs 300ml and a 120 reel typically needs 500ml, so a very high dilution may require a larger tank rather than less liquid."
+    }
   ]
 }
 </script>
@@ -46,14 +62,38 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Does 1+50 mean one part in fifty or one part in fifty-one?",
-      "acceptedAnswer": { "@type": "Answer", "text": "One part in fifty-one. The plus sign means stock plus water, so 1+50 is one part stock and fifty parts water, fifty-one parts in total. Reading it as one part in fifty gives 10ml instead of 9.8ml in 500ml, which is a slightly stronger developer than intended. A ratio written with a colon, such as 1:50, is used both ways depending on the manufacturer, which is why the plus form is safer." } },
-    { "@type": "Question", "name": "How much Rodinal do I need for 500ml at 1+50?",
-      "acceptedAnswer": { "@type": "Answer", "text": "About 9.8ml of Rodinal and 490.2ml of water. Note that many one-shot developers specify a minimum amount of stock per roll regardless of dilution, so check that the stock figure is not below that minimum before using a very high dilution." } },
-    { "@type": "Question", "name": "How do I mix a two-part developer written as 1+1+100?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A three-number dilution such as 1+1+100 means one part of concentrate A, one part of concentrate B, and one hundred parts water, so 102 parts in total. For 500ml of working solution that is 4.9ml of A, 4.9ml of B and 490.2ml of water. Add each concentrate to the water separately rather than combining A and B first, and mix immediately before use, because two-part developers have a short working life once combined." } },
-    { "@type": "Question", "name": "What if the calculated stock is less than the minimum per roll?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Increase the working volume rather than adding more stock. Adding more stock changes the dilution and therefore the development time. A larger tank, or a tank that takes more liquid, keeps the ratio correct while meeting the minimum." } }
+    {
+      "@type": "Question",
+      "name": "Does 1+50 mean one part in fifty or one part in fifty-one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One part in fifty-one. The plus sign means stock plus water, so 1+50 is one part stock and fifty parts water, fifty-one parts in total. Reading it as one part in fifty gives 10ml instead of 9.8ml in 500ml, which is a slightly stronger developer than intended. A ratio written with a colon, such as 1:50, is used both ways depending on the manufacturer, which is why the plus form is safer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much Rodinal do I need for 500ml at 1+50?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 9.8ml of Rodinal and 490.2ml of water. Note that many one-shot developers specify a minimum amount of stock per roll regardless of dilution, so check that the stock figure is not below that minimum before using a very high dilution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I mix a two-part developer written as 1+1+100?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A three-number dilution such as 1+1+100 means one part of concentrate A, one part of concentrate B, and one hundred parts water, so 102 parts in total. For 500ml of working solution that is 4.9ml of A, 4.9ml of B and 490.2ml of water. Add each concentrate to the water separately rather than combining A and B first, and mix immediately before use, because two-part developers have a short working life once combined."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the calculated stock is less than the minimum per roll?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Increase the working volume rather than adding more stock. Adding more stock changes the dilution and therefore the development time. A larger tank, or a tank that takes more liquid, keeps the ratio correct while meeting the minimum."
+      }
+    }
   ]
 }
 </script>
@@ -192,7 +232,7 @@ instead changes the dilution, and therefore the development time.</p>
 
 
 <footer>
-  <p><a href="../credits/">Credits</a></p>
+  <p><a href="../credits/">Credits</a> &middot; <a href="https://www.instagram.com/filmdevmate/" rel="me noopener">@filmdevmate</a></p>
   <p class="langswitch"><span>English</span> &middot; <a href="../ko/dilution/">한국어</a> &middot; <a href="../ja/dilution/">日本語</a></p>
 </footer>
 </div>

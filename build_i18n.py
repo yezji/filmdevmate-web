@@ -90,6 +90,7 @@ def page(lang, slug, title, desc, body, jsonld):
         jsonld = list(jsonld) + [{
             "@context": "https://schema.org", "@type": "WebSite", "name": "FilmDevMate",
             "url": home, "inLanguage": lang,
+            "sameAs": ["https://www.instagram.com/filmdevmate/"],
             "publisher": {"@type": "Person", "name": "Yeji Hong"}}]
 
     scripts = "\n".join(
@@ -112,7 +113,7 @@ def page(lang, slug, title, desc, body, jsonld):
 <div class="wrap">
 {crumb}
 {body}
-<footer>\n  <p><a href="{home}credits/">{CREDITS[lang]}</a></p>\n  <p class="langswitch">{switch}</p></footer>
+<footer>\n  <p><a href="{home}credits/">{CREDITS[lang]}</a> &middot; <a href="https://www.instagram.com/filmdevmate/" rel="me noopener">@filmdevmate</a></p>\n  <p class="langswitch">{switch}</p></footer>
 </div>
 </body>
 </html>

@@ -243,4 +243,14 @@ tr:last-child td { padding-bottom: 0; }
 .people a:last-child { border-bottom: 1px solid var(--rim); }
 .people a:hover { padding-left: 10px; }
 .people strong { color: var(--ink); font-weight: 600; font-size: 20px; letter-spacing: -.015em; }
-.tail { color: var(--ink-3); max-width: var(--measure); }
+
+/* 크레딧 그룹. 역할 라벨은 큰 제목이 아니라 목록의 머리다. */
+.credit-group { margin: 44px 0 0; max-width: var(--measure); }
+.credit-group h2 {
+  font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 4px; padding: 0;
+}
+.credit-group .people { margin: 0; }
+.people .solo { padding: 18px 0; margin: 0; border-top: 1px solid var(--rim);
+                border-bottom: 1px solid var(--rim); }
+.people .solo strong { color: var(--ink); font-weight: 600; font-size: 20px; letter-spacing: -.015em; }
