@@ -234,23 +234,37 @@ tr:last-child td { padding-bottom: 0; }
 .chrome b a:hover { color: var(--ink); }
 .chrome .mark { width: 20px; height: 20px; display: block; flex: none; }
 
-/* ── 크레딧. 사람 목록은 카드로 만들지 않는다. 이름이 주인공이라 줄만 세운다. */
-.people { display: grid; gap: 0; margin: 40px 0 48px; max-width: var(--measure); }
-.people a {
-  padding: 18px 0; border-top: 1px solid var(--rim); text-decoration: none;
-  transition: padding-left 240ms cubic-bezier(.16,1,.3,1);
+/* ── 크레딧. 영화 엔드 크레딧의 배치를 따른다.
+   가운데 정렬, 역할은 작은 대문자로 위에, 이름은 크게 아래에, 그리고 사이를
+   넉넉히 비운다. 자동 스크롤은 넣지 않는다 — 읽으려고 들어온 사람에게서
+   읽는 속도를 빼앗는 장치다. */
+.credits { text-align: center; padding: 8vh 0 12vh; }
+.credits h1 {
+  font-size: clamp(26px, 3.4vw, 40px); letter-spacing: -.02em; line-height: 1.15;
+  margin: 0 auto 18px; max-width: 18ch;
 }
-.people a:last-child { border-bottom: 1px solid var(--rim); }
-.people a:hover { padding-left: 10px; }
-.people strong { color: var(--ink); font-weight: 600; font-size: 20px; letter-spacing: -.015em; }
-
-/* 크레딧 그룹. 역할 라벨은 큰 제목이 아니라 목록의 머리다. */
-.credit-group { margin: 44px 0 0; max-width: var(--measure); }
+.credits .lede {
+  color: var(--ink-3); font-size: 17px; line-height: 1.6; letter-spacing: 0;
+  margin: 0 auto 10vh; max-width: 44ch;
+}
+.credit-group { margin: 0 auto 9vh; max-width: none; }
 .credit-group h2 {
-  font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--amber); margin: 0 0 4px; padding: 0;
+  font-size: 12px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0 0 26px; padding: 0;
 }
-.credit-group .people { margin: 0; }
-.people .solo { padding: 18px 0; margin: 0; border-top: 1px solid var(--rim);
-                border-bottom: 1px solid var(--rim); }
-.people .solo strong { color: var(--ink); font-weight: 600; font-size: 20px; letter-spacing: -.015em; }
+.people { display: grid; gap: 14px; margin: 0; max-width: none; }
+.people a, .people .solo {
+  display: block; padding: 0; margin: 0; border: 0; text-decoration: none;
+  transition: color 200ms ease-out;
+}
+.people a:hover { padding-left: 0; color: var(--amber); }
+.people strong {
+  font-size: clamp(21px, 2.6vw, 30px); font-weight: 600; letter-spacing: -.02em;
+  color: var(--ink);
+}
+.people a:hover strong { color: var(--amber); }
+.credits footer { margin-top: 10vh; border-top: 1px solid var(--rim); }
+/* 본문 p 의 max-width 가 푸터까지 먹어서 가운데 정렬이 왼쪽으로 쏠렸다. */
+.credits footer p { max-width: none; margin-inline: auto; }
+.credits .breadcrumb { margin: 0 0 6vh; text-align: left; }
+
