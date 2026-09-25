@@ -271,8 +271,9 @@ tr:last-child td { padding-bottom: 0; }
 
 /* ── 크레딧 롤. 영화 엔드 크레딧처럼 위로 흘린다.
    명단을 두 벌 넣고 절반 지점에서 되감아 이음매를 감춘다.
-   커서를 올리거나 키보드 포커스가 들어오면 멈춘다 — 이름을 누르려는데
-   글자가 도망가면 안 된다. 모션을 끈 사용자에게는 정지한 목록으로 보인다. */
+   커서를 올리거나 키보드 포커스가 들어오면 멈춘다(안내 문구는 두지 않는다.
+   눌러 보면 알게 되는 동작이라 한 줄을 쓸 만큼은 아니다).
+   모션을 끈 사용자에게는 정지한 목록으로 보인다. */
 .roll {
   position: relative; height: min(68vh, 620px); overflow: hidden;
   mask-image: linear-gradient(transparent, #000 14%, #000 82%, transparent);
@@ -286,15 +287,10 @@ tr:last-child td { padding-bottom: 0; }
   to   { transform: translate3d(0, -50%, 0); }
 }
 .roll .credit-group:first-child { margin-top: 0; }
-.roll-hint {
-  text-align: center; color: var(--ink-3); font-size: 13px;
-  margin: 18px auto 0; max-width: none;
-}
 
 @media (prefers-reduced-motion: reduce) {
   /* 흐르지 않으면 두 벌이 그대로 겹쳐 보이므로 한 벌만 남긴다. */
   .roll { height: auto; overflow: visible; mask-image: none; -webkit-mask-image: none; }
   .roll-track { animation: none; }
   .roll-track > .credit-group:nth-child(n+3) { display: none; }
-  .roll-hint { display: none; }
 }
