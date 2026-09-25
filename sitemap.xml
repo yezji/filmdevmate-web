@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://yezji.github.io/filmdevmate-web/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/dilution/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/temperature/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/steps/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://yezji.github.io/filmdevmate-web/credits/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/ko/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/ja/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/ko/dilution/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/ko/temperature/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/ko/steps/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://yezji.github.io/filmdevmate-web/ko/credits/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/ja/dilution/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/ja/temperature/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://yezji.github.io/filmdevmate-web/ja/steps/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://yezji.github.io/filmdevmate-web/ja/credits/</loc><lastmod>2026-09-25</lastmod></url>
 </urlset>

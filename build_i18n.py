@@ -20,6 +20,7 @@ NAV = {
     'ja': {'': 'FilmDevMate', 'dilution': '希釈計算', 'temperature': '温度', 'steps': '工程順'},
 }
 LANGNAME = {'en': 'English', 'ko': '한국어', 'ja': '日本語'}
+CREDITS = {'ko': '크레딧', 'ja': 'クレジット'}
 LOCALE = {'en': 'en_US', 'ko': 'ko_KR', 'ja': 'ja_JP'}
 OG_ALT = {
     'ko': "현상 단계에 9분 21초가 남아 있는 FilmDevMate 타이머 화면.",
@@ -111,7 +112,7 @@ def page(lang, slug, title, desc, body, jsonld):
 <div class="wrap">
 {crumb}
 {body}
-<footer><p class="langswitch">{switch}</p></footer>
+<footer>\n  <p><a href="{home}credits/">{CREDITS[lang]}</a></p>\n  <p class="langswitch">{switch}</p></footer>
 </div>
 </body>
 </html>
