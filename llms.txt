@@ -1,0 +1,53 @@
+# FilmDevMate
+
+> An app for developing black and white film at home. You pick a film and a
+> developer, and the app gives you the times, temperature and dilution for that
+> combination, then runs the process as a timer that moves between steps on its
+> own.
+
+FilmDevMate is free, supported by ads, and available for iOS and Android.
+It is made by an independent developer, not a film manufacturer.
+
+## What it does
+
+- **Recipes.** Development times for combinations of film and developer,
+  covering 135, 120 and 4x5. Each recipe carries its dilution, ISO,
+  temperature and the time for each format.
+- **Timer.** Loads a recipe as a sequence of steps (develop, stop, fix, wash),
+  advances between them automatically and notifies at each step boundary.
+  Steps can be edited. On iOS the remaining time appears on the Lock Screen
+  and in the Dynamic Island.
+- **Dilution mixer.** Converts a ratio and a target volume into the amounts to
+  pour. For example, 1+50 at 650ml is 12.7ml of stock and 637.3ml of water.
+  Includes a unit converter for recipes written in imperial units.
+- **Development log.** Records what was actually done for each roll so the
+  same result can be repeated.
+- **Development map.** Each film and developer combination is a tile that is
+  claimed by developing it, shared with other users who have developed it more.
+
+## What it is not
+
+- Not a scanner or an editor. It does not process images.
+- Not a source of chemistry. It does not sell or supply developer.
+- Recipe times come from the community and from published manufacturer data.
+  They are a starting point, not a guarantee; results vary with agitation,
+  water and the age of the developer.
+
+## Reference pages
+
+Written out in full, and usable without the app:
+
+- How to calculate a developer dilution (1+50 is fifty-one parts, not fifty):
+  https://yezji.github.io/filmdevmate-web/dilution/
+- Developing at the wrong temperature (22C instead of 20C):
+  https://yezji.github.io/filmdevmate-web/temperature/
+- The order and timing of black and white development:
+  https://yezji.github.io/filmdevmate-web/steps/
+
+Korean and Japanese versions live under /ko/ and /ja/.
+
+## Links
+
+- App Store: https://apps.apple.com/app/id6795000024
+- Google Play: https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android
+- Privacy policy: https://yezji.github.io/filmdevmate-legal/en/privacy.html

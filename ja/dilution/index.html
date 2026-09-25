@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>現像液の希釈計算のしかた（1+50・1+31・1+9）</title>
+<meta name="description" content="1+50 は原液1に水50、合わせて51です。500ml なら原液 9.8ml。よく使う希釈の表と計算機、そして現像液を意図より濃くしてしまう思い違いについて。">
+<link rel="canonical" href="https://yezji.github.io/filmdevmate-web/ja/dilution/">
+<link rel="alternate" hreflang="en" href="https://yezji.github.io/filmdevmate-web/dilution/">
+<link rel="alternate" hreflang="ko" href="https://yezji.github.io/filmdevmate-web/ko/dilution/">
+<link rel="alternate" hreflang="ja" href="https://yezji.github.io/filmdevmate-web/ja/dilution/">
+<link rel="alternate" hreflang="x-default" href="https://yezji.github.io/filmdevmate-web/dilution/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FilmDevMate">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:url" content="https://yezji.github.io/filmdevmate-web/ja/dilution/">
+<meta property="og:title" content="現像液の希釈計算のしかた（1+50・1+31・1+9）">
+<meta property="og:description" content="1+50 は原液1に水50、合わせて51です。500ml なら原液 9.8ml。よく使う希釈の表と計算機、そして現像液を意図より濃くしてしまう思い違いについて。">
+<meta property="og:image" content="https://yezji.github.io/filmdevmate-web/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="現像工程に9分21秒が残っている FilmDevMate のタイマー画面。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="現像液の希釈計算のしかた（1+50・1+31・1+9）">
+<meta name="twitter:description" content="1+50 は原液1に水50、合わせて51です。500ml なら原液 9.8ml。よく使う希釈の表と計算機、そして現像液を意図より濃くしてしまう思い違いについて。">
+<meta name="twitter:image" content="https://yezji.github.io/filmdevmate-web/img/og.jpg">
+<meta name="theme-color" content="#0b0f0e">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="stylesheet" href="../../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "現像液の希釈を計算する方法",
+  "description": "1+50 のような希釈比と目標液量から、原液と水の量を求める手順。",
+  "totalTime": "PT1M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "比率を足す",
+      "text": "1+50 は原液1に水50なので合計51です。後ろの数字だけを使わず、二つを足します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "総量を合計比率で割る",
+      "text": "目標液量を合計の比率数で割ります。500ml を 1+50 なら 500 ÷ 51 = 9.8ml、これが1にあたります。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "原液と水を量る",
+      "text": "原液を1の分だけ、残りを水にします。500ml の 1+50 なら原液 9.8ml と水 490.2ml。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "液量がフィルムを覆うか確認する",
+      "text": "作業液量はタンク内でフィルムを覆う必要があります。35mm リール1本でおよそ 300ml、120 リールでおよそ 500ml が必要です。"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "FilmDevMate",
+      "item": "https://yezji.github.io/filmdevmate-web/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "希釈計算",
+      "item": "https://yezji.github.io/filmdevmate-web/ja/dilution/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="chrome">
+  <b>FilmDevMate</b>
+  <nav><a href="../dilution/">希釈計算</a><a href="../steps/">工程順</a><a href="https://apps.apple.com/app/id6795000024">入手</a></nav>
+</div>
+<div class="wrap">
+<p class="breadcrumb"><a href="../">FilmDevMate</a> / 希釈計算</p>
+<h1>現像液の希釈を計算する</h1>
+
+<div class="answer">
+<p><strong>1+50 は原液1に水50、合わせて51です。</strong>
+500ml なら 500 ÷ 51 で、原液およそ 9.8ml と水およそ 490.2ml。</p>
+</div>
+
+<p>気をつけたい思い違いは、1+50 を「50分の1」と読むことです。すると 9.8ml ではなく
+10ml になり、レシピが意図したより約2%濃い現像液になります。小さい差ですが方向が悪く、
+希釈が低いほど広がります。1+9 を9分の1と読めば 55.6ml、10分の1なら 50ml で10%違います。</p>
+
+<h2>計算機</h2>
+<div class="calc">
+  <div class="row">
+    <div><label for="a">原液</label><input id="a" type="number" value="1" min="0" step="any"></div>
+    <div><label for="b">水</label><input id="b" type="number" value="50" min="0" step="any"></div>
+    <div><label for="v">総量 (ml)</label><input id="v" type="number" value="500" min="0" step="any"></div>
+  </div>
+  <p class="out" id="out">原液 9.8 ml ＋ 水 490.2 ml</p>
+</div>
+<script>
+  const f = () => {
+    const a = parseFloat(document.getElementById('a').value) || 0;
+    const b = parseFloat(document.getElementById('b').value) || 0;
+    const v = parseFloat(document.getElementById('v').value) || 0;
+    const t = a + b, out = document.getElementById('out');
+    if (t <= 0 || v <= 0) { out.textContent = ''; return; }
+    const s = v * a / t;
+    out.textContent = '原液 ' + s.toFixed(1) + ' ml ＋ 水 ' + (v - s).toFixed(1) + ' ml';
+  };
+  ['a','b','v'].forEach(id => document.getElementById(id).addEventListener('input', f));
+  f();
+</script>
+
+<h2>よく使う希釈</h2>
+<table>
+  <tr><th>希釈</th><th>300 ml</th><th>500 ml</th><th>650 ml</th><th>1000 ml</th></tr>
+  <tr><td>1+9</td><td>30.0 ml</td><td>50.0 ml</td><td>65.0 ml</td><td>100.0 ml</td></tr>
+  <tr><td>1+25</td><td>11.5 ml</td><td>19.2 ml</td><td>25.0 ml</td><td>38.5 ml</td></tr>
+  <tr><td>1+31</td><td>9.4 ml</td><td>15.6 ml</td><td>20.3 ml</td><td>31.2 ml</td></tr>
+  <tr><td>1+50</td><td>5.9 ml</td><td>9.8 ml</td><td>12.7 ml</td><td>19.6 ml</td></tr>
+  <tr><td>1+100</td><td>3.0 ml</td><td>5.0 ml</td><td>6.4 ml</td><td>9.9 ml</td></tr>
+</table>
+<p>表の値は原液で、残りが水です。</p>
+
+<h2>計算だけでは足りない二つ</h2>
+
+<h3>液量がフィルムを覆う必要がある</h3>
+<p>作業液量は好みではなくタンクが決めます。35mm リール1本でおよそ 300ml、120 リールで
+およそ 500ml が必要です。高い希釈で原液がありえないほど少なくなるなら、答えは液量を
+減らすことではなく総量を増やすことです。</p>
+
+<h3>現像液ごとに1本あたりの最低原液量がある</h3>
+<p>一回使い切りの現像液には、希釈にかかわらず1本あたりの最低原液量が決められている
+ものがあります。それを下回ると、フィルムを最後まで現像する成分が足りません。計算結果が
+最低量を下回ったら総量を増やしてください。原液を足すと希釈が変わり、現像時間も変わります。</p>
+
+<footer><p class="langswitch"><a href="https://yezji.github.io/filmdevmate-web/dilution/">English</a> · <a href="https://yezji.github.io/filmdevmate-web/ko/dilution/">한국어</a> · <span>日本語</span></p></footer>
+</div>
+</body>
+</html>

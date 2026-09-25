@@ -1,0 +1,217 @@
+/* FilmDevMate. 애플 마케팅 페이지 화법.
+   - 조판: 크기별 트래킹(큰 글자는 음수, 본문은 0 근처), 행간은 크기에 반비례.
+           시스템 폰트(SF)를 그대로 쓴다. 광학 사이징·트래킹 테이블이 이미 들어 있다.
+   - 재질: 상단 크롬은 불투명 띠가 아니라 반투명 레이어다. 내용이 그 아래로 흐른다.
+           경계는 1px 선이 아니라 그라데이션 마스크로 흐린다(스크롤 엣지).
+   - 모션: 스크롤에 묶인 등장. transform 과 opacity 만 건드린다. JS 없음.
+   - 테마: 다크 하나로 잠근다. 액센트는 앰버 한 색, 라운드는 18px 한 단계. */
+:root {
+  --ground: #0b0f0e;
+  --ink: #f5f5f3;
+  --ink-2: rgba(245,245,243,.68);
+  --ink-3: rgba(245,245,243,.45);
+  --amber: #ffb340;
+  --rim: rgba(245,245,243,.10);
+  --r: 18px;
+  --measure: 60ch;
+  --chrome: 52px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font: 400 17px/1.6 system-ui, -apple-system, "SF Pro Text", "Noto Sans KR",
+        "Hiragino Sans", sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: 0;                      /* 본문 트래킹은 0 근처 */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 상단 크롬. 내용이 아래로 흐르는 반투명 레이어. */
+.chrome {
+  position: sticky; top: 0; z-index: 10; height: var(--chrome);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(11,15,14,.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  font-size: 13px; letter-spacing: .005em;
+}
+/* 1px 구분선 대신, 겹치는 자리만 흐린다. */
+.chrome::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 22px;
+  background: linear-gradient(rgba(11,15,14,.55), transparent); pointer-events: none;
+}
+.chrome b { font-weight: 600; letter-spacing: -.01em; }
+.chrome nav { display: flex; gap: 20px; }
+.chrome a { color: var(--ink-2); text-decoration: none; }
+.chrome a:hover { color: var(--ink); }
+@media (prefers-reduced-transparency: reduce) {
+  .chrome { background: #0b0f0e; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px 140px; }
+
+/* ── 조판 스케일. 크기가 올라갈수록 트래킹은 음수로, 행간은 좁게. */
+h1, h2, h3, .lede { word-break: keep-all; overflow-wrap: break-word; hyphens: none; }
+h1 {
+  font-size: clamp(42px, 7.4vw, 88px);
+  line-height: 1.07; letter-spacing: -.035em; font-weight: 700;
+  margin: 0 0 22px; padding-bottom: 2px; text-wrap: balance;
+}
+h2 {
+  font-size: clamp(30px, 4.4vw, 52px);
+  line-height: 1.12; letter-spacing: -.028em; font-weight: 700;
+  margin: 0 0 18px; padding-bottom: 2px; text-wrap: balance;
+}
+h3 { font-size: clamp(21px, 2.2vw, 27px); line-height: 1.2; letter-spacing: -.02em;
+     font-weight: 600; margin: 0 0 10px; }
+.lede { font-size: clamp(19px, 2.1vw, 23px); line-height: 1.45; letter-spacing: -.012em;
+        color: var(--ink-2); margin: 0 0 32px; max-width: 30ch; }
+p { color: var(--ink-2); margin: 0 0 16px; max-width: var(--measure); }
+a { color: var(--amber); }
+
+/* ── 히어로. 화면 하나를 통째로 쓴다. */
+.hero { min-height: calc(100dvh - var(--chrome)); display: grid; gap: 36px;
+        align-items: center; padding: 40px 0; }
+@media (min-width: 900px) {
+  .hero { grid-template-columns: 1.08fr .92fr; gap: 64px; }
+}
+.shot { display: block; width: 100%; height: auto; border-radius: var(--r);
+        border: 1px solid var(--rim); }
+.hero .shot { max-width: 300px; margin-inline: auto; }
+
+/* 스토어 배지는 각 플랫폼이 제공하는 공식 자산을 그대로 쓴다. 색·모서리·문구를
+   바꾸면 양쪽 브랜드 가이드 위반이다. 높이만 맞추고 폭은 비율대로 둔다. */
+.badges { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 0; }
+.badges a { display: inline-flex; transition: transform 120ms ease-out, opacity 160ms ease-out; }
+.badges a:hover { opacity: .88; }
+.badges a:active { transform: scale(.97); }      /* 누르는 순간 반응 */
+.badges img { height: 50px; width: auto; display: block; }
+@media (max-width: 380px) { .badges img { height: 44px; } }
+
+/* ── 섹션. 한 화면에 한 생각. */
+section { padding: 120px 0 0; }
+.statement { max-width: 20ch; }
+
+.feature { display: grid; gap: 32px; align-items: center; padding: 88px 0 0; }
+@media (min-width: 900px) {
+  .feature { grid-template-columns: 1fr 1fr; gap: 64px; }
+  .feature.flip > :first-child { order: 2; }
+}
+.feature .shot { max-width: 264px; margin-inline: auto; }
+
+.reads a {
+  display: grid; gap: 5px; padding: 24px 0; text-decoration: none;
+  border-top: 1px solid var(--rim);
+  transition: padding-left 240ms cubic-bezier(.16,1,.3,1);
+}
+.reads a:first-child { border-top: 0; }
+.reads a:hover { padding-left: 10px; }
+.reads strong { color: var(--ink); font-weight: 600; font-size: 20px; letter-spacing: -.018em; }
+.reads span { color: var(--ink-3); font-size: 16px; }
+
+.facts { display: grid; gap: 0 40px; margin-top: 32px; }
+@media (min-width: 640px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+.facts div { display: flex; gap: 18px; padding: 12px 0; border-top: 1px solid var(--rim); }
+.facts span:first-child { min-width: 110px; color: var(--ink-3); font-size: 15px; }
+.facts span:last-child { color: var(--ink-2); font-size: 15px; }
+
+footer { margin-top: 120px; padding-top: 26px; border-top: 1px solid var(--rim);
+         color: var(--ink-3); font-size: 14px; }
+footer a { color: var(--ink-3); }
+.langswitch span { color: var(--ink); }
+
+/* ── 답변 페이지 */
+.breadcrumb { font-size: 14px; color: var(--ink-3); padding: 40px 0 8px; }
+.breadcrumb a { color: var(--ink-3); text-decoration: none; }
+.answer { border-left: 2px solid var(--amber); padding: 2px 0 2px 22px;
+          margin: 6px 0 36px; max-width: var(--measure); }
+.answer p { color: var(--ink); margin: 0; font-size: clamp(19px, 2vw, 22px);
+            line-height: 1.45; letter-spacing: -.012em; }
+.calc { border: 1px solid var(--rim); border-radius: var(--r); padding: 24px;
+        margin: 30px 0; max-width: var(--measure); background: rgba(245,245,243,.03); }
+.calc label { display: block; font-size: 13px; color: var(--ink-3); margin: 0 0 8px; }
+.calc .row { display: grid; gap: 14px; }
+@media (min-width: 560px) { .calc .row { grid-template-columns: repeat(3, 1fr); } }
+.calc input { width: 100%; background: var(--ground); border: 1px solid var(--rim);
+              border-radius: 12px; color: var(--ink); font: inherit; padding: 13px 15px; }
+.calc .out { margin: 22px 0 0; font-size: clamp(22px, 2.4vw, 27px); font-weight: 600;
+             letter-spacing: -.02em; color: var(--amber); font-variant-numeric: tabular-nums; }
+
+table { border-collapse: collapse; margin: 22px 0 24px; font-size: 16px;
+        font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 10px 28px 10px 0; color: var(--ink-2); }
+th { color: var(--ink-3); font-size: 14px; font-weight: 600; border-bottom: 1px solid var(--rim); }
+td:first-child { color: var(--ink); }
+tr:last-child td { padding-bottom: 0; }
+
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+
+/* ── 스크롤 모션. 전부 CSS scroll-driven animation 이다(JS 없음).
+   지원하지 않는 브라우저에서는 아무 일도 일어나지 않고 그냥 보인다.
+   transform 과 opacity 만 건드린다. 레이아웃을 다시 계산하지 않는다. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    /* 글: 아래에서 올라오며 흐림이 걷힌다. */
+    section > h2, .statement, .feature > div, .reads a, .facts, .answer, .calc {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 4% entry 62%;
+    }
+    /* 한 줄씩 어긋나게 들어오면 순서가 읽힌다. */
+    .reads a:nth-child(2) { animation-range: entry 8% entry 66%; }
+    .reads a:nth-child(3) { animation-range: entry 12% entry 70%; }
+
+    /* 기기 화면: 등장한 뒤에도 화면을 지나가는 동안 천천히 떠오른다(패럴랙스).
+       등장과 패럴랙스를 한 타임라인에 넣어 transform 충돌을 피한다. */
+    .feature .shot {
+      animation: drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+
+    /* 히어로의 기기는 스크롤과 함께 조금 물러난다. */
+    .hero .shot {
+      animation: recede linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+
+    /* 상단 크롬은 페이지 맨 위에서만 투명하다 못해 없는 듯 있고,
+       스크롤이 시작되면 재질이 드러난다. */
+    .chrome {
+      animation: materialize linear both;
+      animation-timeline: scroll();
+      animation-range: 0 120px;
+    }
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes drift {
+  0%   { opacity: 0; transform: translate3d(0, 56px, 0) scale(.94); }
+  38%  { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  100% { opacity: 1; transform: translate3d(0, -34px, 0) scale(1); }
+}
+@keyframes recede {
+  from { transform: none; opacity: 1; }
+  to   { transform: translate3d(0, -40px, 0) scale(.96); opacity: .55; }
+}
+@keyframes materialize {
+  from { background: rgba(11,15,14,0); backdrop-filter: blur(0px); }
+  to   { background: rgba(11,15,14,.72); backdrop-filter: saturate(180%) blur(20px); }
+}
+
+@media (prefers-contrast: more) {
+  :root { --ink-2: rgba(245,245,243,.88); --ink-3: rgba(245,245,243,.72); --rim: rgba(245,245,243,.28); }
+  .chrome { background: #0b0f0e; backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
