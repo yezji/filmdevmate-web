@@ -26,7 +26,7 @@ OG_ALT = {
     'ko': "현상 단계에 9분 21초가 남아 있는 FilmDevMate 타이머 화면.",
     'ja': "現像工程に9分21秒が残っている FilmDevMate のタイマー画面。",
 }
-DOWNLOAD = {'ko': '받기', 'ja': '入手'}
+DOWNLOAD = {'ko': '다운로드', 'ja': '入手'}
 
 
 def page(lang, slug, title, desc, body, jsonld):

@@ -100,7 +100,7 @@ INDEX = dict(
 </section>
 
 <section>
-  <h2 id="get">앱 받기</h2>
+  <h2 id="get">다운로드</h2>
   <p class="badges">
     <a href="https://apps.apple.com/app/id6795000024"><img src="../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
     <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
@@ -199,7 +199,7 @@ A 4.9ml, B 4.9ml, 물 490.2ml. 위 계산기에서 C를 추가하면 됩니다.<
 아래면 총량을 늘리세요. 원액을 더 넣으면 희석이 달라지고, 따라서 현상 시간도
 달라집니다.</p>
 
-<h2 id="get">앱 받기</h2>
+<h2 id="get">다운로드</h2>
 <p class="badges">
   <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
   <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
@@ -250,7 +250,7 @@ FilmDevMate가 보여주는 게 이겁니다. 레시피마다 기준 온도가 �
 어느 정도 손볼 수 있지만, 과하게 현상된 네거티브를 다시 묽게 만들 수는 없습니다.
 수조에 2분 쓰는 것이 한 롤을 날리는 것보다 쌉니다.</p>
 
-<h2 id="get">앱 받기</h2>
+<h2 id="get">다운로드</h2>
 <p class="badges">
   <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
   <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
@@ -301,7 +301,7 @@ STEPS = dict(
 많이 할수록 빨리 현상됩니다. 레시피가 교반 방식을 적어 뒀다면, 그건 그 시간이
 측정된 조건을 설명하는 것입니다.</p>
 
-<h2 id="get">앱 받기</h2>
+<h2 id="get">다운로드</h2>
 <p class="badges">
   <a href="https://apps.apple.com/app/id6795000024"><img src="../../img/badge-appstore.svg" alt="App Store에서 다운로드" width="120" height="40"></a>
   <a href="https://play.google.com/store/apps/details?id=com.objectye.filmdevmate_android"><img src="../../img/badge-play.png" alt="Google Play에서 다운로드" width="564" height="168"></a>
