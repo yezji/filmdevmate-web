@@ -279,7 +279,10 @@ tr:last-child td { padding-bottom: 0; }
   mask-image: linear-gradient(transparent, #000 14%, #000 82%, transparent);
   -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 82%, transparent);
 }
-.roll-track { animation: roll 38s linear infinite; will-change: transform; }
+.roll-track { animation: roll 42s linear infinite; will-change: transform; }
+/* 한 벌마다 무대 높이만큼 위를 비운다. 그래야 빈 화면에서 이름이 올라오기
+   시작하고, 한 바퀴가 끝난 뒤에도 같은 간격으로 다시 시작한다. */
+.roll-copy { padding-top: min(68vh, 620px); }
 .roll:hover .roll-track,
 .roll:focus-within .roll-track { animation-play-state: paused; }
 @keyframes roll {
@@ -292,5 +295,6 @@ tr:last-child td { padding-bottom: 0; }
   /* 흐르지 않으면 두 벌이 그대로 겹쳐 보이므로 한 벌만 남긴다. */
   .roll { height: auto; overflow: visible; mask-image: none; -webkit-mask-image: none; }
   .roll-track { animation: none; }
-  .roll-track > .credit-group:nth-child(n+3) { display: none; }
+  .roll-copy { padding-top: 0; }
+  .roll-copy:nth-child(2) { display: none; }
 }
